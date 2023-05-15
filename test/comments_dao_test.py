@@ -17,7 +17,6 @@ class TestCommentsDAO:
         first_comment_keys = set(first_comment.keys())
         assert first_comment_keys == keys_expected, "Полученные ключи неверны"
 
-    ###
 
     def test_get_comments_by_post_ID_check_type(self, comments_dao):
         """ Тестируем получение комментариев к посту"""
