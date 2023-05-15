@@ -1,24 +1,20 @@
 import json
 
-
 class PostsDAO:
 
     def __init__(self, path):
         self.path = path
 
-    def _load(self):
-        with open(f"{self.path}", "r", encoding="utf-8") as file:
-            data = json.load(file)
-        return data
-
     def get_all(self):
-        
+        """возвращает посты"""
         with open(f"{self.path}", "r", encoding="utf-8") as file:
             data = json.load(file)
         return data
 
     def get_by_user(self, user_name):
-
+        """
+        возвращает посты определенного пользователя
+        """
         posts = self.get_all()
         posts_by_user = []
 
@@ -29,7 +25,9 @@ class PostsDAO:
         return posts_by_user
 
     def search(self, query):
-
+        """
+        возвращает список словарей по вхождению query
+        """
         posts = self.get_all()
 
         if query in ["", " "]:
@@ -46,9 +44,12 @@ class PostsDAO:
         return matching_posts
 
     def get_by_pk(self, pk):
-
+        """
+        возвращает пост по его идентификатору
+        """
         posts = self.get_all()
 
         for post in posts:
             if post['pk'] == pk:
                 return post
+
