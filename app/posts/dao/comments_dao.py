@@ -12,6 +12,7 @@ class CommentsDAO:
         return data
 
     def get_comments_all(self):
+
         comments = self.load_comments()
         return comments
 
