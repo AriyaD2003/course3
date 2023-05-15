@@ -3,7 +3,6 @@ import pytest
 
 class TestPostsDAO:
 
-    ### ВСЕ ПОСТЫ
 
     def test_get_all_check_type(self, posts_dao):
         """  Проверяет, что получение всех постов работает"""
@@ -20,7 +19,6 @@ class TestPostsDAO:
         assert first_post_keys == keys_expected, "Полученные ключи неверны"
 
 
-    ### ОДИН ПОСТ
 
     parameters_get_by_pk = [1,2,3,4]
     @pytest.mark.parametrize("post_pk", parameters_get_by_pk)
@@ -36,7 +34,6 @@ class TestPostsDAO:
         assert no_post == None
 
 
-    ### ПОСТЫ ПО ПОЛЬЗОВАТЕЛЮ
 
     post_parameters_by_user = [("leo", {1, 5}), ("larry", {4, 8}), ("hank", {3, 7})]
 
@@ -51,7 +48,6 @@ class TestPostsDAO:
 
         assert post_pks == post_pks_correct
 
-    ### ПОИСК ПОСТОВ
 
     post_parameters_search = [("тарелка", {1}), ("елки", {3}), ("проснулся", {4})]
 
