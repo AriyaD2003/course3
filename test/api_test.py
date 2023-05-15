@@ -36,7 +36,6 @@ parameters = {
 
 class TestAPI:
 
-    # Сперва тестируем все посты
 
     def test_app_all_posts_status_code(self):
         """ Проверяем, получени ли вообще адекватный список"""
@@ -59,7 +58,6 @@ class TestAPI:
         first_keys = set(response.json[0].keys())
         assert keys == first_keys, "Полученные ключи не совпадают"
 
-    # Теперь тестируем один пост
 
     def test_api_single_post_status_code_and_type(self):
         """ Проверяем, что статус коды отдаются верно """
