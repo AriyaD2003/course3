@@ -1,8 +1,5 @@
-import logging
-from json import JSONDecodeError
-from os import abort
-from flask import Blueprint, request, render_template, abort
-from app.posts.dao.posts_dao import  PostsDAO
+from flask import Blueprint, render_template, request
+from app.posts.dao.posts_dao import PostsDAO
 from app.posts.dao.comments_dao import CommentsDAO
 
 main_blueprint = Blueprint('main_blueprint', __name__,  template_folder='templates')
@@ -12,8 +9,6 @@ from config import COMMENTS_PATH
 
 posts_dao = PostsDAO(POST_PATH)
 comments_dao = CommentsDAO(COMMENTS_PATH)
-
-logger = logging.getLogger("basik")
 
 @main_blueprint.route('/')
 def posts_all():
